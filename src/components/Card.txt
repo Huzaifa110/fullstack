@@ -1,0 +1,957 @@
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   // const [foodCategory, setFoodCategory] = useState([]);
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       // setFoodCategory(data.foodCategory);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   return (
+//     <div className='container'>
+//       {foodItems.map((item, index) => (
+//         <div className="card m-4" style={{ width: "18rem", maxHeight: "460px" }} key={index}>
+//           <img className="card-img-top" src={item.img} alt={item.name} />
+//           <div className="card-body">
+//             <h5 className="card-title">{item.name}</h5>
+//             <p className="card-text">{item.description}</p>
+//             <div className="container w-100">
+//               <select className='m-2 h-100 bg-danger rounded' name="" id="">
+//                 {Array.from(Array(10), (e, i) => {
+//                   const value = i + 1;
+//                   return (
+//                     <option value={value} key={value}>{value}</option>
+//                   );
+//                 })}
+//               </select>
+//               <select name="" id="" className='m-2 h-100 bg-danger rounded'>
+//                 <option value="half">Half</option>
+//                 <option value="full">Full</option>
+//                 <option value="double">Double</option>
+//               </select>
+//               <div className='d-inline h-100 bg-danger p-1 rounded'>Price: {item.price}</div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const calculateTotalPrice = (options, quantity) => {
+//     let totalPrice = 0;
+//     options.forEach(option => {
+//       totalPrice += option.price * quantity;
+//     });
+//     return totalPrice;
+//   };
+
+//   const handleQuantityChange = (e, index) => {
+//     const updatedFoodItems = [...foodItems];
+//     updatedFoodItems[index].selectedQuantity = parseInt(e.target.value);
+//     setFoodItems(updatedFoodItems);
+//   };
+
+//   return (
+//     <div className='container'>
+//       {foodItems.map((item, index) => (
+//         <div className="card m-4" style={{ width: "18rem", maxHeight: "460px" }} key={index}>
+//           <img className="card-img-top" src={item.img} alt={item.name} />
+//           <div className="card-body">
+//             <h5 className="card-title">{item.name}</h5>
+//             <p className="card-text">{item.description}</p>
+//             <div className="container w-100">
+//               <select className='m-2 h-100 bg-danger rounded' onChange={(e) => handleQuantityChange(e, index)}>
+//                 {Array.from(Array(10), (e, i) => {
+//                   const value = i + 1;
+//                   return (
+//                     <option value={value} key={value}>{value}</option>
+//                   );
+//                 })}
+//               </select>
+//               {item.options.map((option, optionIndex) => (
+//                 <select name="" id="" className='m-2 h-100 bg-danger rounded' key={optionIndex}>
+//                   <option value={option.name}>{option.name}</option>
+//                 </select>
+//               ))}
+//               <div className='d-inline h-100 bg-danger p-1 rounded'>
+//                 Total Price: {calculateTotalPrice(item.options, item.selectedQuantity || 1)}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data?.foodItems || []); // Use optional chaining to safely access foodItems
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const calculateTotalPrice = (options, quantity) => {
+//     let totalPrice = 0;
+//     options.forEach(option => {
+//       totalPrice += option.price * quantity;
+//     });
+//     return totalPrice;
+//   };
+
+//   const handleQuantityChange = (e, index) => {
+//     const updatedFoodItems = [...foodItems];
+//     updatedFoodItems[index].selectedQuantity = parseInt(e.target.value);
+//     setFoodItems(updatedFoodItems);
+//   };
+
+//   return (
+//     <div className='container'>
+//       {foodItems.map((item, index) => (
+//         <div className="card m-4" style={{ width: "18rem", maxHeight: "460px" }} key={index}>
+//           <img className="card-img-top" src={item.img} alt={item.name} />
+//           <div className="card-body">
+//             <h5 className="card-title">{item.name}</h5>
+//             <p className="card-text">{item.description}</p>
+//             <div className="container w-100">
+//               <select className='m-2 h-100 bg-danger rounded' onChange={(e) => handleQuantityChange(e, index)}>
+//                 {Array.from(Array(10), (e, i) => {
+//                   const value = i + 1;
+//                   return (
+//                     <option value={value} key={value}>{value}</option>
+//                   );
+//                 })}
+//               </select>
+//               {item.options.map((option, optionIndex) => (
+//                 <select name="" id="" className='m-2 h-100 bg-danger rounded' key={optionIndex}>
+//                   <option value={option.name}>{option.name}</option>
+//                 </select>
+//               ))}
+//               <div className='d-inline h-100 bg-danger p-1 rounded'>
+//                 Total Price: {calculateTotalPrice(item.options, item.selectedQuantity || 1)}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategory, setFoodCategory] = useState([]);
+
+//   const loadData = async () => {
+//     let response = await fetch("http://localhost:8000/api/dishes", {
+//       method: "POST",
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     });
+
+//     response = await response.json();
+//     // console.log(response);
+//     setFoodItems(response[0]);
+//     setFoodCategory(response[1]);
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, [])
+
+
+//   return (
+//     <div className='container'>
+//       <div className="card m-4" style={{ width: "18rem", maxHeight: "460px" }}>
+//         <img className="card-img-top" src="https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YmlyeWFuaXx8fHx8fDE3MDk0NDYwODY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900" />
+//         <div className="card-body">
+//           <h5 className="card-title">Biryani</h5>
+//           <p className="card-text">Delicious Chicken Biryani served with Raita and Salad.</p>
+//           <div className="container w-100">
+
+//             <select className='m-2 h-100 bg-danger rounded' name="" id="">
+//               {Array.from(Array(10), (e, i) => {
+//                 const value = i + 1;
+//                 return (
+//                   <option value={value} key={value}>{value}</option>
+//                 );
+//               })}
+//             </select>
+
+//             <select name="" id="" className='m-2 h-100 bg-danger rounded'>
+//               <option value="half">Half</option>
+//               <option value="full">Full</option>
+//               <option value="double">Double</option>
+//             </select>
+//             <div className='d-inline h-100 bg-danger p-1 rounded'>Price</div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default Card; 
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategory, setFoodCategory] = useState([]);
+
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategory(data.foodCategory);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   return (
+//     <div className=''> 
+//     {/* d-flex flex-wrap m-5 */}
+//       {foodCategory !== []
+//         ? foodCategory.map((data) => {
+//           return (
+//             <div>
+//               <div key={data.id} className='fs-3 m-3'>{data.categoryName}</div>
+//               <hr />
+//               {
+//                 foodItems !== []
+//                 ? foodItems.filter((item) => item.categoryName === data.categoryName).map(filterItems =>{
+//                   return(
+//                     <div key={filterItems.id}></div>
+//                   )
+//                 }): <div>" "</div>
+//               }
+//             </div>
+//           )
+//         })
+//         : " "}
+//       {foodItems.map((item, index) => (
+//         <div className="card m-4" style={{ width: "18rem", maxHeight: "460px" }} key={index}>
+//           <img className="card-img-top" src={item.img} alt={item.name} />
+//           <div className="card-body">
+//             <h5 className="card-title">{item.name}</h5>
+//             <p className="card-text">{item.description}</p>
+//             <div className="container w-100">
+//               <select className='m-2 h-100 bg-danger rounded' name="" id="">
+//                 {Array.from(Array(10), (e, i) => {
+//                   const value = i + 1;
+//                   return (
+//                     <option value={value} key={value}>{value}</option>
+//                   );
+//                 })}
+//               </select>
+//               <select name="" id="" className='m-2 h-100 bg-danger rounded'>
+//                 <option value="half">Half</option>
+//                 <option value="full">Full</option>
+//                 <option value="double">Double</option>
+//               </select>
+//               <div className='d-inline h-100 bg-danger p-1 rounded'>Price: {item.price}</div>
+//             </div>
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+
+
+// // // import React, { useEffect, useState } from 'react';
+
+// // // const Card = () => {
+// // //   const [foodItems, setFoodItems] = useState([]);
+// // //   const [foodCategories, setFoodCategories] = useState([]);
+// // //   const [quantities, setQuantities] = useState({}); // State to store quantities for each item
+
+// // //   const loadData = async () => {
+// // //     try {
+// // //       const response = await fetch("http://localhost:8000/api/dishes", {
+// // //         method: "POST",
+// // //         headers: {
+// // //           'Content-Type': 'application/json'
+// // //         }
+// // //       });
+
+// // //       if (!response.ok) {
+// // //         throw new Error('Failed to fetch data');
+// // //       }
+
+// // //       const data = await response.json();
+// // //       setFoodItems(data.foodItems);
+// // //       setFoodCategories(data.foodCategory);
+// // //     } catch (error) {
+// // //       console.error('Error fetching data:', error);
+// // //     }
+// // //   };
+
+// // //   useEffect(() => {
+// // //     loadData();
+// // //   }, []);
+
+// // //   // const handleQuantity = (itemId, event) => {
+// // //   //   const selectedQuantity = event.target.value;
+// // //   //   setQuantities(prevQuantities => ({
+// // //   //     ...prevQuantities,
+// // //   //     [itemId]: selectedQuantity
+// // //   //   }));
+// // //   // };
+
+// // //   const handleQuantity = (itemId, event) => {
+// // //     const selectedQuantity = event.target.value;
+// // //     setQuantities(prevQuantities => ({
+// // //       ...prevQuantities,
+// // //       [itemId]: selectedQuantity
+// // //     }));
+// // //   };
+
+// // //   return (
+// // //     <div>
+// // //       {foodCategories.map((category, index) => (
+// // //         <div key={index}>
+// // //           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+// // //           <hr className='text-danger' />
+// // //           <div className="d-flex flex-wrap">
+// // //             {foodItems.filter(item => item.categoryName === category.categoryName).map((item, index) => (
+// // //               <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+// // //                 <img className="card-img-top" src={item.img} alt={item.name} />
+// // //                 <div className="card-body">
+// // //                   <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+// // //                   <p className="card-text">{item.description}</p>
+// // //                   <div className="text-center mb-3 text-danger fw-bolder">Price: {item.price}/-</div>
+// // //                   <div className="d-flex justify-content-between align-items-center">
+// // //                     <select
+// // //                       className='bg-danger rounded text-white fw-bolder'
+// // //                       name=""
+// // //                       id=""
+// // //                       onChange={(e) => handleQuantity(item.id, e)}
+// // //                     >
+// // //                       {Array.from(Array(7), (e, i) => {
+// // //                         const value = i;
+// // //                         return (
+// // //                           <option value={value} key={`${item.id}-${value}`}>{value}</option>
+// // //                         );
+// // //                       })}
+// // //                     </select>
+// // //                     <div className='text-danger fw-bolder'>Total: {quantities[item.id] * item.price}</div>
+// // //                   </div>
+// // //                 </div>
+// // //               </div>
+// // //             ))}
+// // //           </div>
+// // //         </div>
+// // //       ))}
+// // //     </div>
+// // //   );
+// // // }
+
+// // // export default Card;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const useItemQuantity = (initialQuantity = 0) => {
+//   const [quantity, setQuantity] = useState(initialQuantity);
+
+//   const handleQuantityChange = (event) => {
+//     setQuantity(parseInt(event.target.value));
+//   };
+
+//   return { quantity, handleQuantityChange };
+// };
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategories, setFoodCategories] = useState([]);
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategories(data.foodCategory);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const { quantity, handleQuantityChange } = useItemQuantity(); // Call the hook outside .map
+
+//   return (
+//     <div>
+//       {foodCategories.map((category, index) => (
+//         <div key={index}>
+//           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+//           <hr className='text-danger' />
+//           <div className="d-flex flex-wrap">
+//             {foodItems.filter(item => item.categoryName === category.categoryName).map((item, index) => (
+//               <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+//                 <img className="card-img-top" src={item.img} alt={item.name} />
+//                 <div className="card-body">
+//                   <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+//                   <p className="card-text">{item.description}</p>
+//                   <div className="text-center mb-3 text-danger fw-bolder">Price: {item.price}/-</div>
+//                   <div className="d-flex justify-content-between align-items-center">
+//                     {quantity} {/* Use the returned quantity */}
+//                     <select
+//                       className='bg-danger rounded text-white fw-bolder'
+//                       name=""
+//                       id=""
+//                       onChange={(e) => handleQuantityChange(item.id, e)} // Pass item ID
+//                     >
+//                       {Array.from(Array(7), (e, i) => (
+//                         <option value={i} key={`${item.id}-${i}`}>{i}</option>
+//                       ))}
+//                     </select>
+//                     <div className='text-danger fw-bolder'>Total: {quantity * item.price}</div> 				{/* Access quantity directly */}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Card;
+
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const useItemQuantity = (initialQuantity = 0) => {
+//   const [quantity, setQuantity] = useState(initialQuantity);
+
+//   const handleQuantityChange = (itemId, event) => {
+//     setQuantity(parseInt(event.target.value));
+//   };
+
+//   return { quantity, handleQuantityChange };
+// };
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategories, setFoodCategories] = useState([]);
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategories(data.foodCategory);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const { quantity, handleQuantityChange } = useItemQuantity(); // Call the hook outside .map
+
+//   return (
+//     <div>
+//       {foodCategories.map((category, index) => (
+//         <div key={index}>
+//           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+//           <hr className='text-danger' />
+//           <div className="d-flex flex-wrap">
+//             {foodItems.filter(item => item.categoryName === category.categoryName).map((item, index) => (
+//               <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+//                 <img className="card-img-top" src={item.img} alt={item.name} />
+//                 <div className="card-body">
+//                   <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+//                   <p className="card-text">{item.description}</p>
+//                   <div className="text-center mb-3 text-danger fw-bolder">Price: {item.price}/-</div>
+//                   <div className="d-flex justify-content-between align-items-center">
+//                     {quantity} {/* Use the returned quantity */}
+//                     <select
+//                       className='bg-danger rounded text-white fw-bolder'
+//                       name=""
+//                       id=""
+//                       onChange={(itemId) => handleQuantityChange(itemId)}
+//                     >
+//                       {Array.from(Array(7), (e, i) => (
+//                         <option value={i} key={`${item.id}-${i}`}>{i}</option>
+//                       ))}
+//                     </select>
+//                     <div className='text-danger fw-bolder'>Total: {quantity * item.price}</div> 				{/* Access quantity directly */}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Card;
+
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategories, setFoodCategories] = useState([]);
+//   const [quantities, setQuantities] = useState({});
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategories(data.foodCategory);
+
+//       const initialQuantities = {};
+//       data.foodItems.forEach(item => {
+//         initialQuantities[item.id] = 0;
+//       });
+//       setQuantities(initialQuantities);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const handleQuantity = (itemId, event) => {
+//     const selectedQuantity = parseInt(event.target.value); 
+//     setQuantities(({
+//       [itemId]: selectedQuantity
+//     }));
+//     // setQuantities => ({[itemId]: selectedQuantity})
+//   };
+
+//   return (
+//     <div>
+//       {foodCategories.map((category, index) => (
+//         <div key={index}>
+//           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+//           <hr className='text-danger' />
+//           <div className="d-flex flex-wrap">
+//             {foodItems.filter(item => item.categoryName === category.categoryName).map((item, index) => (
+//               <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+//                 <img className="card-img-top" src={item.img} alt={item.name} />
+//                 <div className="card-body">
+//                   <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+//                   <p className="card-text">{item.description}</p>
+//                   <div className="text-center mb-3 text-danger fw-bolder">Price: Rs {item.price}/-</div>
+//                   <div className="d-flex justify-content-between align-items-center">
+//                     <select
+//                       className='bg-danger rounded text-white fw-bolder'
+//                       name=""
+//                       id=""
+//                       onChange={(e) => handleQuantity(item.id, e)}
+//                       value={quantities[item.id]} 
+//                     >
+//                       {Array.from(Array(7), (e, i) => {
+//                         return (
+//                           <option value={i} key={`${item.id}-${i}`}>{i}</option>
+//                         );
+//                       })}
+//                     </select>
+//                     <div className='text-danger fw-bolder'>Total: Rs {quantities[item.id] * item.price}/-</div>
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategories, setFoodCategories] = useState([]);
+//   const [quantities, setQuantities] = useState({});
+//   const [searchQuery, setSearchQuery] = useState('');
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategories(data.foodCategory);
+
+//       const initialQuantities = {};
+//       data.foodItems.forEach(item => {
+//         initialQuantities[item.id] = 0;
+//       });
+//       setQuantities(initialQuantities);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const handleQuantity = (itemId, event) => {
+//     const selectedQuantity = parseInt(event.target.value); 
+//     setQuantities({
+//       ...quantities,
+//       [itemId]: selectedQuantity
+//     });
+//   };
+
+//   const handleSearch = (event) => {
+//     setSearchQuery(event.target.value.toLowerCase());
+//   };
+
+//   const filteredItems = foodItems.filter(item =>
+//     item.name.toLowerCase().includes(searchQuery) 
+//   );
+
+//   return (
+//     <div>
+//       <div className="container" style={{ maxWidth: "500px", margin: "0 auto", textAlign: "center" }}>
+//         <input
+//           type="text"
+//           className="form-control border-danger"
+//           placeholder="Search dishes..."
+//           value={searchQuery}
+//           onChange={handleSearch}
+//         />
+//       </div>
+//       {foodCategories.map((category, index) => (
+//         <div key={index}>
+//           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+//           <hr className='text-danger' />
+//           <div className="d-flex flex-wrap">
+//             {filteredItems
+//               .filter(item => item.categoryName === category.categoryName)
+//               .map((item, index) => (
+//                 <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+//                   <img className="card-img-top" src={item.img} alt={item.name} />
+//                   <div className="card-body">
+//                     <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+//                     <p className="card-text">{item.description}</p>
+//                     <div className="text-center mb-3 text-danger fw-bolder">Price: Rs {item.price}/-</div>
+//                     <div className="d-flex justify-content-between align-items-center">
+//                       <select
+//                         className='bg-danger rounded text-white fw-bolder'
+//                         name=""
+//                         id=""
+//                         onChange={(e) => handleQuantity(item.id, e)}
+//                         value={quantities[item.id]} 
+//                       >
+//                         {Array.from(Array(7), (e, i) => {
+//                           return (
+//                             <option value={i} key={`${item.id}-${i}`}>{i}</option>
+//                           );
+//                         })}
+//                       </select>
+//                       <div className='text-danger fw-bolder'>Total: Rs {quantities[item.id] * item.price}/-</div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               ))}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default Card;
+
+// import React, { useEffect, useState } from 'react';
+
+// const Card = () => {
+//   const [foodItems, setFoodItems] = useState([]);
+//   const [foodCategories, setFoodCategories] = useState([]);
+//   const [quantities, setQuantities] = useState({});
+//   const [searchQuery, setSearchQuery] = useState('');
+//   const [selectedCategory, setSelectedCategory] = useState('');
+
+//   const loadData = async () => {
+//     try {
+//       const response = await fetch("http://localhost:8000/api/dishes", {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//       });
+
+//       if (!response.ok) {
+//         throw new Error('Failed to fetch data');
+//       }
+
+//       const data = await response.json();
+//       setFoodItems(data.foodItems);
+//       setFoodCategories(data.foodCategory);
+
+//       const initialQuantities = {};
+//       data.foodItems.forEach(item => {
+//         initialQuantities[item.id] = 0;
+//       });
+//       setQuantities(initialQuantities);
+//     } catch (error) {
+//       console.error('Error fetching data:', error);
+//     }
+//   };
+
+//   useEffect(() => {
+//     loadData();
+//   }, []);
+
+//   const handleQuantity = (itemId, event) => {
+//     const selectedQuantity = parseInt(event.target.value);
+//     setQuantities({
+//       ...quantities,
+//       [itemId]: selectedQuantity
+//     });
+//   };
+
+//   const handleSearchQueryChange = (event) => {
+//     setSearchQuery(event.target.value.toLowerCase());
+//   };
+
+//   const handleCategoryChange = (event) => {
+//     setSelectedCategory(event.target.value);
+//   };
+
+//   const filteredItems = foodItems.filter(item =>
+//     item.name.toLowerCase().includes(searchQuery) &&
+//     (selectedCategory === '' || item.categoryName.toLowerCase().includes(selectedCategory))
+//   );
+
+//     const handleAddToCart = (itemId) => {
+//       alert("I am Card No: .." + String(itemId))
+//     }
+
+//   return (
+//     <div>
+//       <div className="container" style={{ maxWidth: "500px", margin: "0 auto", textAlign: "center" }}>
+//         <select
+//           className="form-select bg-danger text-white my-2"
+//           onChange={handleCategoryChange}
+//           value={selectedCategory}
+//         >
+//           <option value="">All Categories</option>
+//           {foodCategories.map((category, index) => (
+//             <option key={index} value={category.categoryName.toLowerCase()}>
+//               {category.categoryName}
+//             </option>
+//           ))}
+//         </select>
+//         <input
+//           type="text"
+//           className="form-control mb-2 border-danger text-danger"
+//           placeholder="Search dishes..."
+//           value={searchQuery}
+//           onChange={handleSearchQueryChange}
+//         />
+//       </div>
+//       {foodCategories.map((category, index) => (
+//         <div key={index}>
+//           <div className='fs-3 m-3 text-danger fw-bolder'>{category.categoryName}</div>
+//           <div className="d-flex flex-wrap">
+//             {filteredItems
+//               .filter(item => item.categoryName === category.categoryName)
+//               .map((item, index) => (
+//                 <div key={index} className="card m-4" style={{ width: "18rem", maxHeight: "600px" }}>
+//                   <img className="card-img-top" src={item.img} alt={item.name} />
+//                   <div className="card-body">
+//                     <h5 className="card-title text-danger fst-italic fw-bolder">{item.name}</h5>
+//                     <p className="card-text">{item.description}</p>
+//                     <p className="card-text">{item._id}</p>
+//                     <div className="text-center mb-3 text-danger fw-bolder">Price: Rs {item.price}/-</div>
+//                     <div className="d-flex justify-content-between align-items-center">
+//                       <select
+//                         className='bg-danger rounded text-white fw-bolder'
+//                         name=""
+//                         id=""
+//                         onChange={(e) => handleQuantity(item.id, e)}
+//                         value={quantities[item.id]}
+//                       >
+//                         {Array.from(Array(7), (e, i) => (
+//                           <option value={i} key={`${item.id}-${i}`}>{i}</option>
+//                         ))}
+//                       </select>
+//                       <div className='text-danger fw-bolder'>Total: Rs {quantities[item.id] * item.price}/-</div>
+//                     </div>
+//                     <hr />
+//                     <div className="text-center">
+//                       <div className="btn btn-outline-danger justify-right fw-bolder" onClick={handleAddToCart}>Add to Cart</div>
+//                     </div>
+//                   </div>
+//                 </div>
+//               ))}
+//           </div>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Card;
+

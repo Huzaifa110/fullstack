@@ -1,0 +1,79 @@
+// const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch("http://localhost:8000/api/register", {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({ name: data.name, location: data.location, email: data.email, password: data.password }),
+  //     });
+  //     const responseData = await response.json();
+  //     console.log(responseData); // Log the response data
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //   }
+  // };
+
+
+
+
+
+
+
+  
+    // const json = await response.json();
+    // console.log(json);
+
+    // if (!json.success) {
+    //   alert("Enter valid credentials!");
+    // };
+
+
+    // const mongoose = require('mongoose');
+// const mongoURI = "mongodb+srv://huzaifazafar750:food123@cluster0.tsktv8v.mongodb.net/food?retryWrites=true&w=majority&appName=Cluster0";
+
+// const mongoDB = async () => {
+//     try {
+//         await mongoose.connect(mongoURI, {
+//             // useNewUrlParser: true
+
+//         });
+//         console.log("Connected to MongoDB!");
+//         const fetchedData = await mongoose.connection.db.collection("food_items").find({}).toArray();
+//     } catch (error) {
+//         console.error("Error connecting to MongoDB:", error);
+//     }
+// };
+
+// module.exports = mongoDB;
+// https://cloud.mongodb.com/v2/65e35c8c243a925e85b2a46d#/metrics/replicaSet/65e35d486a3c532b5e93d69c/explorer/food/users/find
+
+// const mongoose = require('mongoose');
+// const mongoURI = "mongodb+srv://huzaifazafar750:food123@cluster0.tsktv8v.mongodb.net/food?retryWrites=true&w=majority&appName=Cluster0";
+
+// const mongoDB = async () => {
+//     try {
+//         await mongoose.connect(mongoURI, {
+//             // useNewUrlParser: true
+
+//         });
+//         console.log("Connected to MongoDB!");
+//         const fetchedData = await mongoose.connection.db.collection("food_items");
+//         fetchedData.find({}).toArray(function(err, data){
+//             if (err) console.log(err);
+//             else{
+//                 global.food_items = data;
+//                 console.log(global.food_items);
+//             }
+//         })
+//     } catch (error) {
+//         console.error("Error connecting to MongoDB:", error);
+//     }
+// };
+
+// module.exports = mongoDB;
+
+
+
+  
