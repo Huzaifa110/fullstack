@@ -1,0 +1,80 @@
+[
+    {
+        "categoryName": "Biryani",
+        "name": "Chicken Biryani",
+        "img": "https://images.unsplash.com/photo-1599043513900-ed6fe01d3833?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YmlyeWFuaXx8fHx8fDE3MDk0NDYwODY&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "options": [
+            {
+                "half": 150,
+                "full": 300
+            }
+        ],
+        "description": "Delicious Chicken Biryani sevred with Raita and Salad."
+    },
+    {
+        "categoryName": "Fast Food",
+        "name": "Chese Lava Burger",
+        "img": "https://images.unsplash.com/photo-1565299507177-b0ac66763828?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YnVyZ2VyfHx8fHx8MTcwOTQ0NjQwMA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "options": [
+            {
+                "plain": 400,
+                "loaded": 780
+            }
+        ],
+        "description": "Delicious Chese Lava Burger sevred with Fries and Coleslaw."
+    },
+    {
+        "categoryName": "Fast Food",
+        "name": "Pizza",
+        "img": "https://images.unsplash.com/photo-1625395005224-0fce68a3cdc8?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8cGl6emF8fHx8fHwxNzA5NDQ2Njk3&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "options": [
+            {
+                "small": 400,
+                "large": 800
+            }
+        ],
+        "description": "Delicious Pizza sevred with Tomato and Garlic Sauce."
+    },
+    {
+        "categoryName": "Biryani",
+        "name": "Special Spicy Biryani",
+        "img": "https://images.unsplash.com/photo-1691171047439-4b39b58b4766?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YmlyeWFuaXx8fHx8fDE3MTIwNTI3NDc&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "description": "Special Spicy Biryani served with Curry and Nuggets.",
+        "price": 800
+    },
+    {
+        "categoryName": "Biryani",
+        "name": "Hyderabadi Beef Pulao",
+        "img": "",
+        "description": "Hyderabadi Beef Pulao served with Raita and Salad.",
+        "price": 800
+    },
+    {
+        "categoryName": "Biryani",
+        "name": "Mandi Platter",
+        "img": "https://images.unsplash.com/photo-1697276063790-a68a966b12f7?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YmlyeWFuaXx8fHx8fDE3MTIwNTMyOTQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "description": "Mandi Platter served with BBQ Chicken, Raita and Salad.",
+        "price": 1600
+    },
+    {
+            "categoryName": "Fast Foodd",
+            "name": "Crispy Mayo Burger",
+            "img": "https://images.unsplash.com/photo-1606755962773-d324e0a13086?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YnVyZ2VyfHx8fHx8MTcxMjA1NDg1Mg&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+            "description": "Crispy Mayo Burger served with Fries and Coleslaw.",
+            "price": 600
+    },
+    {
+        "categoryName": "Fast Foodd",
+        "name": "Crispy Chese Burger",
+        "img": "https://images.unsplash.com/photo-1571955320535-b8245f765e0c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8YnVyZ2VyfHx8fHx8MTcxMjA1NTAwNA&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "description": "Crispy Chese Burger served with Fries and Coleslaw.",
+        "price": 550  
+    },
+    {
+        "categoryName": "Special",
+        "name": "Special Mutton Handi",
+        "img": "https://images.unsplash.com/photo-1559203244-78de52adba0e?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=700&ixid=MnwxfDB8MXxyYW5kb218MHx8bXV0dG9ufHx8fHx8MTcxMzEyMTI1MQ&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=900",
+        "description": "Special Mutton Handi served with Raita and Salad.",
+        "price": 2800  
+    }
+]
