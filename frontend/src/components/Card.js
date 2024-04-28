@@ -9,7 +9,7 @@ const Card = () => {
 
   const loadData = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/dishes", {
+      const response = await fetch("https://fullstack-api-two.vercel.app/dishes", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
